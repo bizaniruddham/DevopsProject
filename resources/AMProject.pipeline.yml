@@ -1,0 +1,13 @@
+# The main pipeline for AMProject
+resources:
+  pipelines:
+    AMProject_pipeline:
+      name: AMProject_pipeline
+      catalog: bizmetric_databricks_learning
+      schema: AMProject_${bundle.target}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
